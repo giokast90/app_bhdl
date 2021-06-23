@@ -1,0 +1,66 @@
+<ion-header class="ion-header-menu ion-hide-lg-up">
+  <ion-toolbar class="toolbar-menu" translucent>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false" color="primary"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content">
+    <ion-grid class="ion-no-margin">
+
+      <ion-row>
+        <ion-col>
+          <div class="logo-content">
+            <img src="/assets/img/logo_horizontal.svg">
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center form-login">
+        <ion-col>
+          <form [formGroup]="loginForm" class="list-form">
+            <ion-item class="ion-no-padding ion-text-center">
+              <ion-input type="text" placeholder="N&uacute;mero de C&eacute;dula" formControlName="userName">
+              </ion-input>
+            </ion-item>
+            <p *ngIf="loginForm.get('userName').touched && loginForm.get('userName').hasError('required')"
+              class="ion-text-center">
+              <ion-text color="danger">
+                Debes ingresar un n&uacute;mero de documento
+              </ion-text>
+            </p>
+
+            <ion-item class="ion-no-padding ion-text-center">
+              <ion-input type="password" placeholder="Contrase&ntilde;a" formControlName="password"></ion-input>
+            </ion-item>
+            <p *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')"
+              class="ion-text-center">
+              <ion-text color="danger">
+                Debes ingresar una contrase&ntilde;a
+              </ion-text>
+            </p>
+          </form>
+
+          <div class="ion-padding ion-text-center">
+            <div>
+              <ion-list lines="none">
+                <ion-item>
+                  <ion-toggle [(ngModel)]="rememberUser"></ion-toggle>
+                  <ion-label class="ion-margin-start">Recordar usuario</ion-label>
+                </ion-item>
+              </ion-list>
+            </div>
+            <div>
+              <ion-button expand="full" shape="round" [disabled]="!loginForm.valid" tappable (click)="login()"
+                class="btn-primary">
+                Ingresar
+              </ion-button>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="watermark"></div>
+  </div>
+</ion-content>

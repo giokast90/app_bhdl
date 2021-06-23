@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" color="light">
+  <ion-grid class="ion-margin">
+    <ion-row>
+      <ion-col>
+        <ion-label color="dark" class="bold">Mis tarjetas</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-slides [options]="sliderConfig">
+          <ion-slide *ngFor="let card of cards">
+            <ion-card [color]="card.productBrand == 'Visa' ? 'medium' : 'primary'"
+              (click)="detail(card)">
+              <ion-list lines="none">
+                <ion-item [color]="card.productBrand == 'Visa' ? 'medium' : 'primary'">
+                  <ion-icon name="imagotipo-white" slot="start"></ion-icon>
+                  <ion-label class="ion-text-end" color="light">{{getNumberCard(card.productNumber)}}</ion-label>
+                </ion-item>
+              </ion-list>
+
+              <ion-card-content>
+                <ion-row>
+                  <ion-col class="ion-no-padding">
+                    <ion-label color="light">RD$ {{card.BalanceRD}}</ion-label>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col class="ion-no-padding">
+                    <ion-label color="light">US$ {{card.BalanceUS}}</ion-label>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+              <ion-footer class="ion-no-border">
+                <ion-list lines="none">
+                  <ion-item [color]="card.productBrand == 'Visa' ? 'medium' : 'primary'">
+                    <ion-icon [name]="card.productBrand == 'Visa' ? 'visa' : 'mastercard'" slot="start"></ion-icon>
+                  </ion-item>
+                </ion-list>
+              </ion-footer>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label color="dark" class="bold">Transacciones</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list lines="none">
+          <ion-item *ngFor="let transaction of transactions" color="transparent">
+            <ion-icon [name]="transaction.transactionType == 1 ? 'trending-down-outline':'trending-up-outline'"
+              [color]="transaction.transactionType == 1 ? 'danger':'primary'"></ion-icon>
+            <ion-label class="ion-text-start ion-padding-start">
+              <h2 class="bold">{{transaction.description}}</h2>
+              <p class="bold">{{ transaction.date | date:'LLLL dd' }} </p>
+            </ion-label>
+            <ion-label class="ion-text-end bold" [color]="transaction.transactionType == 1 ? 'danger':'primary'">
+              {{transaction.transactionType == 1 ? '-RD$':'+RD$'}} {{transaction.amount}}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,34 @@
+.header-ios ion-toolbar:last-child {
+    --border-width: 0;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+.logo-content {
+    text-align: center;
+    img {
+        width: 50%;
+    }
+}
+
+.list-form {
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.form-login {
+    margin-top: 40px;
+}
+
+.watermark {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.36), rgb(255, 255, 255)), url(/assets/img/bkg.png);
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+  }

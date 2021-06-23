@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu *ngIf="!authService.isLoggedIn()" contentId="main-content" menuId="menu-content" type="overlay"
+      class="menu-content">
+      <ion-content>
+        <ion-row class="menu-inicio-content">
+          <ion-col size="12" class="menu-inner-inicio">
+            <div class="img-toggle-menu">
+              <img src="/assets/img/logo_horizontal.svg">
+            </div>
+            <div class="content-item-menu">
+              <ion-item class="item-menu" lines="none" *ngFor="let item of inicioMenuList">
+                <ion-icon [name]="item.icon" slot="start" class="icon-item-menu"></ion-icon>
+                <ion-label class="text-item-menu">
+                  {{item.title}}
+                </ion-label>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

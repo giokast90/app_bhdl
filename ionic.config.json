@@ -1,0 +1,8 @@
+{
+  "name": "app_bhdl",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "9c2ed34b"
+}

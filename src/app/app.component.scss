@@ -1,0 +1,30 @@
+.menu-content {
+    --width: 200px;
+}
+
+.menu-inicio-content {
+    height: 100%;
+}
+
+.img-toggle-menu {
+    padding: 10px;
+    width: 90%;
+    cursor: pointer;
+    img {
+        height: 50px;
+    }
+    margin: 0 auto;
+}
+
+.content-item-menu {
+    margin-top: 140px;
+}
+
+.icon-item-menu {
+    margin: 12px 8px 12px 2px !important;
+    color: var(--ion-color-primary);
+} 
+
+.text-item-menu:hover {
+    color: var(--ion-color-primary-tint);
+}
